@@ -20,8 +20,8 @@ module Webhooks
   module Publisher
     extend(Dry::Configurable)
 
-    setting(:backend, ActiveSupport::Notifications)
-    setting(:adapter, Webhooks::SubscriberAdapter)
+    setting(:backend, default: ActiveSupport::Notifications)
+    setting(:adapter, default: Webhooks::SubscriberAdapter)
     setting(:namespace) { |v| Webhooks::Namespace.new(v, ".") if v.is_a?(Symbol) || v.is_a?(String) }
 
     def self.included(other)
