@@ -1,0 +1,21 @@
+module Webhooks
+  module Subscriber
+    def self.publisher: (singleton(Class) pub_class) -> Webhooks::Subscriber::SubscriberModule
+
+    class SubscriberModule < ::Module
+      attr_reader publisher: singleton(Class)
+
+      def initialize: (singleton(Class) publisher) -> void
+
+      private
+
+      def included: (untyped other) -> untyped
+
+      module ClassMethods
+        # @param [String,Symbol] event_id
+        # @param [Proc,Symbol,String,#call,nil] with
+        def subscribe_to: ((String | Symbol) event_id, ?with: (Proc | String | Symbol)?) ?{ () -> untyped } -> untyped
+      end
+    end
+  end
+end

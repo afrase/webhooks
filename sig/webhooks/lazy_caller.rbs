@@ -1,0 +1,18 @@
+module Webhooks
+  class LazyCaller
+    attr_reader receiver: untyped
+
+    attr_reader method_name: (String | Symbol)
+
+    def initialize: (untyped receiver, untyped method_name) -> void
+
+    def call: (*untyped args) -> untyped
+
+    def ==: (untyped other) -> bool
+    alias eql? ==
+
+    def real_method_name: () -> String
+
+    def receiver_name: () -> String
+  end
+end

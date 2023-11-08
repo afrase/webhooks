@@ -1,0 +1,25 @@
+module Webhooks
+  module Publisher
+    extend Dry::Configurable
+
+    module ClassMethods
+      def namespace: () -> Webhooks::Namespace
+
+      def backend: () -> ActiveSupport::Notifications
+
+      def adapter: () -> singleton(Webhooks::SubscriberAdapter)
+
+      def subscribe: ((String | Symbol)? event_id, ?Proc? callable) ?{ () -> untyped } -> void
+
+      def subscribers: () -> Hash[String, Array[Webhooks::EventedHelper]]
+
+      def unsubscribe: ((String | Symbol)? event_id) -> void
+
+      def listening?: ((String | Symbol)? event_id) -> bool
+
+      def all: (?Proc? callable) ?{ () -> untyped } -> void
+
+      def publish: ((String | Symbol)? event_id, untyped payload) -> void
+    end
+  end
+end

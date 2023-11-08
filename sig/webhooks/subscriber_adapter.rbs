@@ -1,0 +1,12 @@
+module Webhooks
+  class SubscriberAdapter
+    def self.call: (Proc callable, ?(String | Symbol)? event_id) -> SubscriberAdapter
+
+    attr_reader event_id: (String | Symbol)?
+    attr_reader callable: Proc
+
+    def initialize: (Proc callable, (String | Symbol)? event_id) -> void
+
+    def call: (*untyped args) -> void
+  end
+end

@@ -1,0 +1,12 @@
+module Webhooks
+  class EventedHelper
+    attr_reader delegate: Object?
+    attr_reader subscriber: ActiveSupport::Notifications::Fanout::Subscribers::Evented
+
+    def callable: -> Proc?
+
+    def event_id: -> String?
+
+    def pattern: -> Regexp
+  end
+end

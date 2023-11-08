@@ -1,0 +1,12 @@
+module Webhooks
+  class Namespace
+    attr_reader namespace: String
+    attr_reader delimiter: String
+
+    def initialize: ((String | Symbol)? namespace, (String | Symbol)? delimiter) -> void
+
+    def call: (?(String | Symbol)? name) -> String
+
+    def to_regexp: (?(String | Symbol)? name) -> Regexp
+  end
+end

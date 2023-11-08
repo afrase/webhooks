@@ -1,0 +1,5 @@
+module Webhooks
+  class Event
+    attr_reader payload: untyped
+  end
+end
